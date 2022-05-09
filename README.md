@@ -20,3 +20,6 @@ Ejecutar en la ruta donde está el backend, es decir salirse hasta donde esta la
 pip install Django
 
 pip install -r requirements.txt
+
+python manage.py migrate //para activar el proyecto 
+python manage.py runserver
