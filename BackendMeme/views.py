@@ -9,5 +9,5 @@ def home(request):
     return HttpResponse("<p style='color:Green' >Bienvenido al Home <p>")
     
 def categoriaEdad(request,edad):
-    return HttpResponse("<h1>Categoria es = a: %d<h1>" %edad)
+    return HttpResponse("<h1>Categoria es: %d<h1>" %edad)
 
