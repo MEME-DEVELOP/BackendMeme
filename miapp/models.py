@@ -171,6 +171,8 @@ class Empresa(models.Model):
     class Meta:
         managed = False
         db_table = 'empresa'
+    def __unicode__(self):
+        return self.field_id_empresa
 
 
 class Factura(models.Model):
@@ -195,7 +197,7 @@ class Inventario(models.Model):
     field_id_empresa = models.ForeignKey(Empresa, models.DO_NOTHING, db_column='_id_empresa', blank=True, null=True)  # Field renamed because it started with '_'.
     nombre_inventario = models.CharField(max_length=1024)
     disponibilidad_inventario = models.BooleanField()
-    cantidad = models.DecimalField(max_digits=65535, decimal_places=65535)
+    cantidad = models.IntegerField()
 
     class Meta:
         managed = False
