@@ -269,3 +269,69 @@ class Proveedor(models.Model):
     class Meta:
         managed = False
         db_table = 'proveedor'
+class Cliented(models.Model):
+    idcliente = models.IntegerField(db_column='IDCLIENTE', primary_key=True)  # Field name made lowercase.
+    nombre = models.IntegerField(db_column='NOMBRE', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'CLIENTED'
+
+
+class ClienteHasUsuariod(models.Model):
+    nmid = models.BigIntegerField(db_column='NMID')  # Field name made lowercase.
+    cliente_idcliente = models.ForeignKey(Cliented, models.DO_NOTHING, db_column='CLIENTE_IDCLIENTE')  # Field name made lowercase.
+    usuario_idusuario = models.ForeignKey('Usuariod', models.DO_NOTHING, db_column='USUARIO_IDUSUARIO')  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'CLIENTE_HAS_USUARIOD'
+
+
+class Facturad(models.Model):
+    idfactura = models.IntegerField(db_column='IDFACTURA', primary_key=True)  # Field name made lowercase.
+    idcliente = models.ForeignKey(Cliented, models.DO_NOTHING, db_column='IDCLIENTE', blank=True, null=True)  # Field name made lowercase.
+    idusuario = models.ForeignKey('Usuariod', models.DO_NOTHING, db_column='IDUSUARIO', blank=True, null=True)  # Field name made lowercase.
+    fecha = models.DateField(db_column='FECHA', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'FACTURAD'
+
+
+class Productod(models.Model):
+    idproducto = models.IntegerField(db_column='IDPRODUCTO', primary_key=True)  # Field name made lowercase.
+    nombre = models.CharField(db_column='NOMBRE', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    preciounidad = models.TextField(db_column='PRECIOUNIDAD', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
+    stock = models.IntegerField(db_column='STOCK', blank=True, null=True)  # Field name made lowercase.
+    imagen = models.CharField(db_column='IMAGEN', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    idusuario = models.ForeignKey('Usuariod', models.DO_NOTHING, db_column='IDUSUARIO')  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'PRODUCTOD'
+
+
+class Registrod(models.Model):
+    idregister = models.IntegerField(db_column='IDREGISTER', primary_key=True)  # Field name made lowercase.
+    cantidad = models.IntegerField(db_column='CANTIDAD', blank=True, null=True)  # Field name made lowercase.
+    constot = models.IntegerField(db_column='CONSTOT', blank=True, null=True)  # Field name made lowercase.
+    facturad_idfactura = models.ForeignKey(Facturad, models.DO_NOTHING, db_column='FACTURAD_IDFACTURA')  # Field name made lowercase.
+    productod_idproducto = models.ForeignKey(Productod, models.DO_NOTHING, db_column='PRODUCTOD_IDPRODUCTO')  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'REGISTROD'
+
+
+class Usuariod(models.Model):
+    idusuario = models.IntegerField(db_column='IDUSUARIO', primary_key=True)  # Field name made lowercase.
+    nombreusuario = models.CharField(db_column='NOMBREUSUARIO', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    documento = models.IntegerField(db_column='DOCUMENTO', blank=True, null=True)  # Field name made lowercase.
+    nombreempresa = models.CharField(db_column='NOMBREEMPRESA', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    correo = models.CharField(db_column='CORREO', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    logo = models.CharField(db_column='LOGO', max_length=50, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'USUARIOD'

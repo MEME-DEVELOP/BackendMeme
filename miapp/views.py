@@ -24,3 +24,23 @@ class ProductoViewsets(viewsets.ModelViewSet):
 class ProveedorViewsets(viewsets.ModelViewSet):
     queryset = Proveedor.objects.all()
     serializer_class=ProveedorSerializers
+    
+class ProductodViewsets(viewsets.ModelViewSet):
+    queryset = Productod.objects.all()
+    serializer_class=ProductodSerializers
+
+class UsuariodViewsets(viewsets.ModelViewSet):
+    queryset = Usuariod.objects.all()
+    serializer_class=UsuariodSerializers
+       
+class RegistrodViewsets(viewsets.ModelViewSet):
+    queryset = Registrod.objects.all()
+    serializer_class=RegistrodSerializers
+    
+class FacturadViewsets(viewsets.ModelViewSet):
+    queryset = Facturad.objects.all()
+    serializer_class=FacturadSerializers
+    
+class ClientedViewsets(viewsets.ModelViewSet):
+    queryset = Cliented.objects.all()
+    serializer_class=ClientedSerializers
