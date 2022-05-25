@@ -1,3 +1,5 @@
+import django_filters
+from multiprocessing import context
 from django.shortcuts import render
 from rest_framework import viewsets
 from .models import*
@@ -32,7 +34,8 @@ class ProductodViewsets(viewsets.ModelViewSet):
 class UsuariodViewsets(viewsets.ModelViewSet):
     queryset = Usuariod.objects.all()
     serializer_class=UsuariodSerializers
-       
+    filter_fields=('correo','logo')
+        
 class RegistrodViewsets(viewsets.ModelViewSet):
     queryset = Registrod.objects.all()
     serializer_class=RegistrodSerializers
