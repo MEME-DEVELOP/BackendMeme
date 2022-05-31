@@ -271,7 +271,8 @@ class Proveedor(models.Model):
         db_table = 'proveedor'
 class Cliented(models.Model):
     idcliente = models.IntegerField(db_column='IDCLIENTE', primary_key=True)  # Field name made lowercase.
-    nombre = models.IntegerField(db_column='NOMBRE', blank=True, null=True)  # Field name made lowercase.
+    telefono = models.IntegerField(db_column='TELEFONO', blank=True, null=True)  # Field name made lowercase.
+    nombre = models.CharField(db_column='NOMBRE', max_length=50, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
