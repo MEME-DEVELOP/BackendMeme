@@ -1,4 +1,6 @@
 
+
+import django_filters.rest_framework
 from django_filters.rest_framework import DjangoFilterBackend
 from multiprocessing import context
 from django.shortcuts import render
@@ -31,6 +33,9 @@ class ProveedorViewsets(viewsets.ModelViewSet):
 class ProductodViewsets(viewsets.ModelViewSet):
     queryset = Productod.objects.all()
     serializer_class=ProductodSerializers
+    filter_fields=('idusuario',)
+
+
 
 class UsuariodViewsets(viewsets.ModelViewSet):
     queryset = Usuariod.objects.all()
