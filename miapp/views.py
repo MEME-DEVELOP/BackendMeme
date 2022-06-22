@@ -45,6 +45,7 @@ class UsuariodViewsets(viewsets.ModelViewSet):
 class RegistrodViewsets(viewsets.ModelViewSet):
     queryset = Registrod.objects.all()
     serializer_class=RegistrodSerializers
+    filter_fields=('facturad_idfactura',)
     
 class FacturadViewsets(viewsets.ModelViewSet):
     queryset = Facturad.objects.all()
