@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import *
+from .models import Curso, Empresa, Inventario, Producto, Proveedor, Cliented, Facturad, Productod, Registrod, Usuariod
 
 class CursoSerializers(serializers.ModelSerializer):
     class Meta:

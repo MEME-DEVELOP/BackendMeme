@@ -5,8 +5,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 from multiprocessing import context
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import*
-from .serializers import *
+from .models import Curso, Empresa, Inventario, Proveedor, Productod, Usuariod, Registrod, Facturad, Cliented
+from .serializers import CursoSerializers, EmpresaSerializers, InventarioSerializers, ProductodSerializers, ProductoSerializers, ProveedorSerializers, UsuariodSerializers, RegistrodSerializers, FacturadSerializers, ClientedSerializers
 # Create your views here.
 
 
